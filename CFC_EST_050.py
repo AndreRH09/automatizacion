@@ -8,12 +8,12 @@ from CFC_LOGIN import login, out_login
 import time
 
 options = webdriver.ChromeOptions()
-options.add_argument(r"--user-data-dir=C:\Users\Dock-8\AppData\Local\Google\Chrome\User Data\SeleniumProfile")
+options.add_argument(r"--user-data-dir=C:\Users\Dock-8\AppData\Local\Google\Chrome\User Data\HormigaProfile")
 
 service = Service(executable_path="chromedriver.exe")
 driver = webdriver.Chrome(service=service, options=options)
 
-driver.get("https://teammatesv4.appspot.com/web/front/home")
+driver.get("https://teammates-hormiga-1.uc.r.appspot.com/web/front/home")
 
 wait = WebDriverWait(driver, 90)
 login(wait)

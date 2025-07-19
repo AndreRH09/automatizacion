@@ -13,7 +13,7 @@ options.add_argument(r"--user-data-dir=C:\Users\Dock-8\AppData\Local\Google\Chro
 service = Service(executable_path="chromedriver.exe")
 driver = webdriver.Chrome(service=service, options=options)
 
-driver.get("https://teammatesv4.appspot.com/web/front/home")
+driver.get("https://teammates-hormiga-1.uc.r.appspot.com/web/front/home")
 
 wait = WebDriverWait(driver, 90)
 login(wait)

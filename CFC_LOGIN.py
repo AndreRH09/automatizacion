@@ -1,5 +1,8 @@
+from datetime import datetime
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support import expected_conditions as CO
+import time
 
 def login(wait):
     drop_down = wait.until(CO.element_to_be_clickable((By.XPATH,"//button[text()='Login']")))
@@ -12,3 +15,59 @@ def out_login(wait):
     drop_down.click()
     out = wait.until(CO.element_to_be_clickable((By.ID, "logout-btn")))
     out.click()
+def addCourse(wait):
+    add = wait.until(CO.element_to_be_clickable((By.XPATH,"//a[text()=' Add New Course ']")))
+    add.click()
+    course_id = wait.until(CO.element_to_be_clickable((By.ID,"course-id")))
+    course_id.send_keys("CSTS-EST-001")
+    course_name = wait.until(CO.element_to_be_clickable((By.ID,"course-name")))
+    course_name.send_keys("Test-Course-Feedback-empty")
+    auto_horario = wait.until(CO.element_to_be_clickable((By.XPATH,"//button[text()=' Auto-Detect ']")))
+    auto_horario.click()
+    create = wait.until(CO.element_to_be_clickable((By.ID,"btn-submit-course")))
+    create.click()
+    time.sleep(10)
+    add_student = wait.until(CO.element_to_be_clickable((By.ID,"btn-enroll-0")))
+    add_student.click()
+    section    = wait.until(CO.element_to_be_clickable((By.XPATH, ".//tr[@aria-rowindex='2']/td[@aria-colindex='2']")))
+    team       = wait.until(CO.element_to_be_clickable((By.XPATH, ".//tr[@aria-rowindex='2']/td[@aria-colindex='3']")))
+    name       = wait.until(CO.element_to_be_clickable((By.XPATH, ".//tr[@aria-rowindex='2']/td[@aria-colindex='4']")))
+    email      = wait.until(CO.element_to_be_clickable((By.XPATH, ".//tr[@aria-rowindex='2']/td[@aria-colindex='5']")))
+    comentario = wait.until(CO.element_to_be_clickable((By.XPATH, ".//tr[@aria-rowindex='2']/td[@aria-colindex='6']")))
+    section.click()
+    section.send_keys("CS_TEST_001")
+    team.click()
+    team.send_keys("Test")
+    name.click()
+    name.send_keys("persona Test")
+    email.click()
+    email.send_keys("fayamamani@unsa.edu.pe")
+    comentario.click()
+    comentario.send_keys("Es un test luego será eliminado")
+    enroll = wait.until(CO.element_to_be_clickable((By.ID,"btn-enroll")))
+    enroll.click()
+    wait.until(CO.visibility_of_element_located((By.CLASS_NAME,"toast-body")))
+    estudiantes = wait.until(CO.element_to_be_clickable((By.XPATH,"//a[text()='Students']")))
+    estudiantes.click()
+    panel_div = wait.until(CO.element_to_be_clickable((By.XPATH, "//div[contains(@class,'card-header') and contains(., '[CSTS-EST-001]: Test-Course-Feedback-empty')]")))
+    panel_div.click()
+    invitar = wait.until(CO.element_to_be_clickable((By.ID,"btn-send-invite-CSTS-EST-001-0")))
+    invitar.click()
+    modal = wait.until(CO.visibility_of_element_located((By.CSS_SELECTOR, "ngb-modal-window[role='dialog']")))
+    close_button = modal.find_element(By.XPATH, "//button[text()='Yes']")
+    close_button.click()
+    wait.until(CO.visibility_of_element_located((By.CLASS_NAME,"toast-body")))
+def addSession(wait, driver):
+    addSessions = wait.until(CO.element_to_be_clickable((By.XPATH,"//a[text()='Sessions']")))
+    addSessions.click()
+    create = wait.until(CO.element_to_be_clickable((By.ID,"btn-add-session")))
+    create.click()
+    name = wait.until(CO.element_to_be_clickable((By.ID,"add-session-name")))
+    name.send_keys("session de prueba")
+    hora_actual = datetime.now().hour
+    hora_texto = f"{hora_actual:02d}:00H"
+    select_element = driver.find_element(By.XPATH, "//select[@aria-label='Select time']")
+    select = Select(select_element)
+    select.select_by_visible_text(hora_texto)
+    create_session = wait.until(CO.element_to_be_clickable((By.ID,"btn-create-session")))
+    create_session.click()
