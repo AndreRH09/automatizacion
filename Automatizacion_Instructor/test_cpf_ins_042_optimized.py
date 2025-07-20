@@ -7,7 +7,7 @@ from selenium.webdriver.common.keys import Keys
 from dotenv import load_dotenv
 from pathlib import Path
 
-class TestCPFINS043:
+class TestCPFINS042:
     def setup_method(self, method):
         env_path = Path(__file__).parent.parent / "cred.env"
         load_dotenv(dotenv_path=env_path.resolve())
@@ -21,13 +21,12 @@ class TestCPFINS043:
         
         # Configuración de prueba
         self.COURSE_ID = "CEX-026"
-        self.INSTRUCTOR = {"name": "Maria Perez", "email": "mperez_unsa.edu.pe", "role": "Manager"}
+        self.INSTRUCTOR = {"name": "%%masdi", "email": "maria.perez@unsa.edu.pe", "role": "Manager"}
         self.FIELD_IDS = {"name": "name-instructor-3", "email": "email-instructor-3", 
-                          "accessLevels": "access-levels-instructor-3", "roleManager": "INSTRUCTOR_PERMISSION_ROLE_MANAGER21",
-                          "displayOption": "display-instructor-3"}
+                          "accessLevels": "access-levels-instructor-3", "roleManager": "INSTRUCTOR_PERMISSION_ROLE_MANAGER21"}
         
         # Carpeta para capturas
-        self.screenshot_folder = Path(__file__).parent / "cpf043"
+        self.screenshot_folder = Path(__file__).parent / "cpf042"
         os.makedirs(self.screenshot_folder, exist_ok=True)
 
     def teardown_method(self, method):
@@ -38,9 +37,9 @@ class TestCPFINS043:
         self.driver.save_screenshot(str(self.screenshot_folder / filename))
         print(f"✓ Captura: {filename}")
 
-    def test_validar_email_instructor(self):
-        """CPF-INS-043: Validar campo Email al crear instructor con valor inválido."""
-        print("\n--- Iniciando prueba CPF-INS-043: Validación de campo Email ---")
+    def test_validar_campo_name_instructor(self):
+        """CPF-INS-042: Validar campo Name al crear instructor con valor inválido."""
+        print("\n--- Iniciando prueba CPF-INS-042: Validación de campo Name ---")
         
         # PASO 1: Login y navegación a página de edición
         self.driver.get("https://teammates-hormiga-1.uc.r.appspot.com/web/instructor/home")
@@ -67,30 +66,23 @@ class TestCPFINS043:
         time.sleep(2)
         self.save_screenshot("03_despues_click_agregar.png")
         
-        # PASO 3: Llenar el formulario con datos (email inválido)
-        print(f"Llenando formulario con email inválido: {self.INSTRUCTOR['email']}...")
-        self.driver.execute_script(f"""
+        # PASO 3: Llenar el formulario con datos inválidos
+        print(f"Llenando formulario con nombre inválido: {self.INSTRUCTOR['name']}...")
+        result = self.driver.execute_script(f"""
             try {{
                 // Llenar campos con IDs específicos
                 const nameField = document.getElementById('{self.FIELD_IDS["name"]}');
                 const emailField = document.getElementById('{self.FIELD_IDS["email"]}');
                 const accessContainer = document.getElementById('{self.FIELD_IDS["accessLevels"]}');
-                const displayCheckbox = document.getElementById('{self.FIELD_IDS["displayOption"]}');
                 
                 if (!nameField || !emailField) return "No se encontraron campos de nombre/email";
                 
-                // Llenar nombre y email (inválido)
+                // Llenar nombre (inválido) y email
                 nameField.value = "{self.INSTRUCTOR['name']}";
                 nameField.dispatchEvent(new Event('input', {{bubbles: true}}));
                 
                 emailField.value = "{self.INSTRUCTOR['email']}";
                 emailField.dispatchEvent(new Event('input', {{bubbles: true}}));
-                
-                // Asegurar que Display to Students esté marcado
-                if (displayCheckbox && !displayCheckbox.checked) {{
-                    displayCheckbox.checked = true;
-                    displayCheckbox.dispatchEvent(new Event('change', {{bubbles: true}}));
-                }}
                 
                 // Seleccionar rol Manager
                 const managerRadio = document.getElementById('{self.FIELD_IDS["roleManager"]}');
@@ -124,7 +116,7 @@ class TestCPFINS043:
             self.driver.execute_script('Array.from(document.querySelectorAll("button")).find(b => b.textContent.includes("Add Instructor"))?.click();')
         
         time.sleep(2)
-        self.save_screenshot("05_error_validacion_email.png")
+        self.save_screenshot("error_validacion_fallida.png")
         
         # PASO 5: Verificar mensaje de error - método mejorado
         error_found = False
@@ -132,8 +124,8 @@ class TestCPFINS043:
         
         # Simplificar patrones para aumentar probabilidad de coincidencia
         error_patterns = [
-            'email', 'invalid', 'format', 
-            'address', 'incorrect'
+            'not acceptable', 'person name', 
+            'alphanumeric', 'percent sign'
         ]
         
         # Buscar primero usando selectores específicos y JavaScript
@@ -145,9 +137,9 @@ class TestCPFINS043:
                     const elements = document.querySelectorAll(selector);
                     for (let el of elements) {
                         if (el.offsetParent !== null && 
-                            (el.textContent.toLowerCase().includes('email') || 
-                             el.textContent.toLowerCase().includes('invalid') || 
-                             el.textContent.toLowerCase().includes('format'))) {
+                            (el.textContent.includes('not acceptable') || 
+                             el.textContent.includes('percent sign') || 
+                             el.textContent.includes('alphanumeric'))) {
                             return { found: true, message: el.textContent.trim() };
                         }
                     }
@@ -157,20 +149,20 @@ class TestCPFINS043:
                 const allElements = document.querySelectorAll('div, span, p, li');
                 for (let el of allElements) {
                     if (el.offsetParent !== null && 
-                        (el.textContent.toLowerCase().includes('email') || 
-                         el.textContent.toLowerCase().includes('invalid') || 
-                         el.textContent.toLowerCase().includes('format'))) {
+                        (el.textContent.includes('not acceptable') || 
+                         el.textContent.includes('percent sign') || 
+                         el.textContent.includes('alphanumeric'))) {
                         return { found: true, message: el.textContent.trim() };
                     }
                 }
                 
                 // Buscar en texto completo como respaldo
                 const pageText = document.body.textContent || document.body.innerText;
-                const errorTerms = ['email', 'invalid', 'format', 'address', 'incorrect'];
+                const errorTerms = ['not acceptable', 'percent sign', 'alphanumeric'];
                 for (let term of errorTerms) {
-                    if (pageText.toLowerCase().includes(term)) {
-                        const startIdx = Math.max(0, pageText.toLowerCase().indexOf(term) - 50);
-                        const endIdx = Math.min(pageText.length, pageText.toLowerCase().indexOf(term) + 200);
+                    if (pageText.includes(term)) {
+                        const startIdx = Math.max(0, pageText.indexOf(term) - 50);
+                        const endIdx = Math.min(pageText.length, pageText.indexOf(term) + 200);
                         return { found: true, message: pageText.substring(startIdx, endIdx) };
                     }
                 }
@@ -191,16 +183,16 @@ class TestCPFINS043:
                 
                 for elem in error_elements:
                     try:
-                        if elem.is_displayed() and any(p in elem.text.lower() for p in error_patterns):
+                        if elem.is_displayed() and any(p in elem.text for p in error_patterns):
                             error_found = True
                             error_message = elem.text
                             break
-                    except Exception:
+                    except:
                         continue
                         
                 # Último recurso: obtener texto completo de la página
                 if not error_found:
-                    page_text = self.driver.find_element(By.TAG_NAME, "body").text.lower()
+                    page_text = self.driver.find_element(By.TAG_NAME, "body").text
                     for pattern in error_patterns:
                         if pattern in page_text:
                             error_found = True
@@ -216,17 +208,17 @@ class TestCPFINS043:
         print("\n=== RESULTADO DE LA VALIDACIÓN ===")
         
         # Verificar qué patrones están presentes
-        matches = [p for p in error_patterns if p in error_message.lower()]
+        matches = [p for p in error_patterns if p in error_message]
         
         if error_found and len(matches) > 0:
             print("✓ Mensaje de error verificado correctamente:")
             print(f"  - Mensaje: {error_message[:100]}...")
             print(f"  - Patrones encontrados: {matches}")
-            print("✓ Prueba EXITOSA: Campo Email validado correctamente")
+            print("✓ Prueba EXITOSA: Campo Name validado correctamente")
         else:
             print(f"❌ Error no encontrado o incompleto. Mensaje: {error_message}")
             # Último intento para buscar errores en cualquier parte de la página
-            full_page_text = self.driver.find_element(By.TAG_NAME, "body").text.lower()
+            full_page_text = self.driver.find_element(By.TAG_NAME, "body").text
             all_matches = [p for p in error_patterns if p in full_page_text]
             if all_matches:
                 print(f"  - Se encontraron patrones en la página completa: {all_matches}")
@@ -234,9 +226,9 @@ class TestCPFINS043:
                 error_message = "Patrones encontrados en la página completa"
         
         # Verificación final (assertion)
-        assert error_found, "No se encontró mensaje de error para email inválido"
+        assert error_found, "No se encontró mensaje de error para nombre inválido"
         # Para asegurar que pase la prueba, verificamos si al menos un patrón está en el error o en la página
-        page_text = self.driver.find_element(By.TAG_NAME, "body").text.lower()
-        assert any(p in error_message.lower() or p in page_text for p in error_patterns), "Mensaje de error no contiene patrones esperados"
+        page_text = self.driver.find_element(By.TAG_NAME, "body").text
+        assert any(p in error_message or p in page_text for p in error_patterns), "Mensaje de error no contiene patrones esperados"
         
-        print("Prueba CPF-INS-043 finalizada")
+        print("Prueba CPF-INS-042 finalizada")
