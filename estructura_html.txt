@@ -1,0 +1,180 @@
+<html lang="en"><head>
+  <title>TEAMMATES - Online Peer Feedback/Evaluation System for Student Team Projects</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="application-name" content="TEAMMATES - Online Peer Feedback/Evaluation System for Student Team Projects">
+  <meta name="keywords" content="Teammates, peer feedback, peer evaluation, student, team, project, free">
+  <meta name="description" content="TEAMMATES is an Online Peer Feedback System for student team projects. It is completely free to use. Get your students to evaluate their performance in team projects, and view reports and summaries of their feedback and evaluations.">
+  <meta name="theme-color" content="#3f3f3f">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="shortcut icon" href="assets/icons/icon-32x32.ico">
+  <link rel="icon" href="assets/icons/icon-32x32.png">
+  <link rel="apple-touch-icon" href="assets/icons/icon-152x152.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/handsontable@14.1.0/dist/handsontable.full.min.css">
+  <base href="/">
+<link rel="stylesheet" href="styles.a07da6ec0fe00fdd.css" crossorigin="anonymous" integrity="sha384-S9VMXmjFxqr2fVcw8r+j2rGKhBGSuzLpBlmaA6b5nYDO0J0sUaAyoGsYS1baEtTf"><style>footer[_ngcontent-ng-c180323284], nav[_ngcontent-ng-c180323284]{background:#3c3c3c}nav[_ngcontent-ng-c180323284]{height:50px}nav[_ngcontent-ng-c180323284]   img[_ngcontent-ng-c180323284]{height:50px;margin-left:20px}.main-content[_ngcontent-ng-c180323284]{margin-top:50px;min-height:calc(100vh - 102px);padding:20px 70px}@media (width <= 575px){.main-content[_ngcontent-ng-c180323284]{min-height:calc(100vh - 144px)}}@media (width >= 576px) and (width <= 589px){.main-content[_ngcontent-ng-c180323284]{min-height:calc(100vh - 123px)}}.footer[_ngcontent-ng-c180323284]{padding:5px 70px;color:#ffffffbf}.footer[_ngcontent-ng-c180323284]   a[_ngcontent-ng-c180323284]:hover{filter:brightness(150%)}.container[_ngcontent-ng-c180323284]{max-width:1350px}.dropdown-item[_ngcontent-ng-c180323284]{color:#ffffffbf}.dropdown-item[_ngcontent-ng-c180323284]:hover, .dropdown-item[_ngcontent-ng-c180323284]:focus{background-color:inherit;color:#fff}.navbar-nav[_ngcontent-ng-c180323284]   li[_ngcontent-ng-c180323284]{margin:auto 0 auto 10px}.navbar[_ngcontent-ng-c180323284]{padding:0 80px;z-index:1000}.nav-link[_ngcontent-ng-c180323284]{cursor:pointer}.pull-right[_ngcontent-ng-c180323284]{margin-right:20px}@media (width <= 1024px){.navbar[_ngcontent-ng-c180323284]{padding:0 30px}.main-content[_ngcontent-ng-c180323284]{padding:20px 50px}.footer[_ngcontent-ng-c180323284]{padding:5px 30px}}@media (width <= 991px){.navbar-nav[_ngcontent-ng-c180323284]   li[_ngcontent-ng-c180323284]{margin:auto 20px}.pull-right[_ngcontent-ng-c180323284]{margin-right:0}}@media (width <= 768px){.navbar[_ngcontent-ng-c180323284]{padding:0}.main-content[_ngcontent-ng-c180323284]{padding:10px 15px}.footer[_ngcontent-ng-c180323284]{padding:5px 15px}}.navbar-toggler[_ngcontent-ng-c180323284]{margin-right:20px}.navbar-toggler[_ngcontent-ng-c180323284]:focus{outline:none}.navbar-collapse[_ngcontent-ng-c180323284], .dropdown-menu[_ngcontent-ng-c180323284]{background:#3c3c3c;min-width:0}.dropdown-divider[_ngcontent-ng-c180323284]{border:1px solid rgba(255,255,255,.5);margin:.5rem 15px}.dropdown-menu-right[_ngcontent-ng-c180323284]{margin-bottom:.5rem}button.bg-transparent.btn.btn-link.nav-link[_ngcontent-ng-c180323284]:active{color:#fff!important}</style><style>.loader-bar-visible[_ngcontent-ng-c133360504]{position:fixed;width:100%;left:0;opacity:1;z-index:2000}[_nghost-ng-c133360504]     .progress{border-radius:0;height:.25rem}</style><style>[_nghost-ng-c2034398941]{left:50%;margin:.5em;position:fixed;top:55px;transform:translate(-50%);z-index:1100}[_nghost-ng-c2034398941]   .toast[_ngcontent-ng-c2034398941]{max-width:100%;width:inherit;white-space:break-spaces}.btn-close[_ngcontent-ng-c2034398941]{float:right;font-size:1rem;margin-left:10px;color:inherit}</style><style>.loading-container[_ngcontent-ng-c887068950]{margin:1rem;display:flex;flex-direction:column;justify-content:center;align-items:center}.spinner-border[_ngcontent-ng-c887068950]{width:3rem;height:3rem;display:inline-table}</style><style>.banner[_ngcontent-ng-c1213596507]{padding:1.875rem 1.875rem 1.25rem;word-break:break-word}.banner-text[_ngcontent-ng-c1213596507]{max-height:80px;overflow-y:auto}.btn-close[_ngcontent-ng-c1213596507]{float:right}</style><style>@media (width <= 768px){.custom-button-active[_ngcontent-ng-c185409781]{width:115px;margin-bottom:5px}}@media (width <= 768px){.custom-button-archived[_ngcontent-ng-c185409781]{width:95px;margin-bottom:5px}}.sortable-header[_ngcontent-ng-c185409781]{cursor:pointer}.sortable-header[_ngcontent-ng-c185409781]   i[_ngcontent-ng-c185409781]{margin-left:.3em}.sortable-header[_ngcontent-ng-c185409781]   .fa-stack[_ngcontent-ng-c185409781]{width:20%}.sortable-header[_ngcontent-ng-c185409781]   button[_ngcontent-ng-c185409781]{background:none;color:inherit;border:none;padding:0;text-align:left;width:100%;font:inherit;cursor:inherit}.course-section[_ngcontent-ng-c185409781]{margin-top:2em}.bold-label[_ngcontent-ng-c185409781]{font-weight:700!important}.recycle-bin-body[_ngcontent-ng-c185409781]{padding:0}.background-color-medium-gray[_ngcontent-ng-c185409781]{background-color:#e5e5e6}.text-color-black[_ngcontent-ng-c185409781]{color:#000}.text-color-gray[_ngcontent-ng-c185409781]{color:gray}.text-color-lightgray[_ngcontent-ng-c185409781]{color:#d3d3d3}.text-color-red[_ngcontent-ng-c185409781]{color:red}.link-disabled[_ngcontent-ng-c185409781]{cursor:default;color:#000;pointer-events:none}.recycle-bin-table[_ngcontent-ng-c185409781]{margin-bottom:0}.archive-body[_ngcontent-ng-c185409781]{padding:0}.archive-table[_ngcontent-ng-c185409781]{margin-bottom:0}.margin-top-30px[_ngcontent-ng-c185409781]{margin-top:30px}@media (width >= 768px){.actions-cell[_ngcontent-ng-c185409781]   button[_ngcontent-ng-c185409781]:not(.dropdown-item){margin-left:var(--btn-margin)}}.dropdown-menu[_ngcontent-ng-c185409781]{min-width:.5rem}.table-responsive[_ngcontent-ng-c185409781]{overflow:auto}.d-inline-block[_ngcontent-ng-c185409781]{position:inherit}.link-button[_ngcontent-ng-c185409781]{border:none;text-decoration:underline;color:var(--bs-link-color);padding:0;background:none}.link-button[_ngcontent-ng-c185409781]:hover{color:var(--bs-link-hover-color)}</style></head>
+<body>
+  <noscript>
+    <div>
+      <h1>
+        TEAMMATES web application requires JavaScript to be enabled.<br>
+        You may enable it in your browser by following steps below.
+      </h1>
+
+      <div>
+        <ul>
+          <li>
+            <a href="#enablejs-ie">Internet Explorer</a>
+          </li>
+          <li>
+            <a href="#enablejs-firefox">Mozilla Firefox</a>
+          </li>
+          <li>
+            <a href="#enablejs-safari">Safari</a>
+          </li>
+          <li>
+            <a href="#enablejs-opera">Opera</a>
+          </li>
+          <li>
+            <a href="#enablejs-chrome">Chrome</a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <div id="enablejs-ie">
+          <h1>Internet Explorer</h1>
+          Please complete the following instructions to activate and enable JavaScript in Internet Explorer.
+
+          <h3>PC</h3>
+          <ol>
+            <li>In the Tools drop-down menu, select Internet Options.</li>
+            <li>Next, select the Security tab.</li>
+            <li>Then, select the earth (Internet) icon.</li>
+            <li>Then select the Custom Level button.</li>
+            <li>Locate Scripting near the bottom of the list.</li>
+            <li>Under Active Scripting, select Enable, then hit OK.</li>
+            <li>Answer yes to the following confirmation box.</li>
+            <li>Hit OK to close the Internet Options window.</li>
+            <li>Finally, refresh your browser.</li>
+          </ol>
+        </div>
+
+        <div id="enablejs-firefox">
+          <h1>Firefox</h1>
+          Please complete the following instructions to activate and enable JavaScript in Firefox.
+
+          <h3>PC</h3>
+          <ol>
+            <li>In the Tools drop-down menu, select Options.</li>
+            <li>Next, select the Content icon/tab at the top on the window.</li>
+            <li>Then, check the Enable JavaScript checkbox under the Web Content category.</li>
+            <li>Hit OK to close the Options window and save your changes.</li>
+            <li>Finally, refresh your browser.</li>
+          </ol>
+          <h3>MAC</h3>
+          <ol>
+            <li>Select the Firefox menu item from the Apple/System bar at the top of the screen.</li>
+            <li>From the drop-down menu, select Preferences...</li>
+            <li>Select the Content icon/tab at the top on the window.</li>
+            <li>Then, check the Enable JavaScript checkbox.</li>
+            <li>Close the Options window to save your changes.</li>
+            <li>Finally, refresh your browser.</li>
+          </ol>
+        </div>
+
+        <div id="enablejs-safari">
+          <h1>Safari</h1>
+          Please complete the following instructions to activate and enable JavaScript in Safari.
+
+          <h3>PC</h3>
+          <ol>
+            <li>In the Edit drop-down menu at the top of the window, select Preferences...</li>
+            <li>Select the Security icon/tab at the top on the window.</li>
+            <li>Then, check the Enable JavaScript checkbox.</li>
+            <li>Close the window to save your changes.</li>
+            <li>Finally, refresh your browser.</li>
+          </ol>
+          <h3>MAC</h3>
+          <ol>
+            <li>Select the Safari menu item from the Apple/System bar at the top of the screen.</li>
+            <li>From the drop-down menu, select Preferences.</li>
+            <li>Select the Content icon/tab at the top of the window.</li>
+            <li>Then, check the Enable JavaScript checkbox.</li>
+            <li>Close the window to save your changes.</li>
+            <li>Finally, refresh your browser.</li>
+          </ol>
+        </div>
+
+        <div id="enablejs-opera">
+          <h1>Opera</h1>
+          Please complete the following instructions to activate and enable JavaScript in Opera.
+
+          <h3>PC</h3>
+          <ol>
+            <li>In the Tools drop-down menu at the top of the window, select Preferences...</li>
+            <li>Select the Advanced tab at the top on the Preferences window.</li>
+            <li>Find the Content item in the list on the left-side of the window and select it.</li>
+            <li>Then, check the Enable JavaScript checkbox.</li>
+            <li>Click OK to save your changes and close the Preferences window.</li>
+            <li>Finally, refresh your browser.</li>
+          </ol>
+          <h3>MAC</h3>
+          <ol>
+            <li>Select the Opera menu item from the Apple/System bar at the top of the screen.</li>
+            <li>From the drop-down menu, select Preferences.</li>
+            <li>Select the Content icon/tab at the top of the Preferences window.</li>
+            <li>Then, check the Enable JavaScript checkbox.</li>
+            <li>Click OK to save your changes and close the Preferences window.</li>
+            <li>Finally, refresh your browser.</li>
+          </ol>
+        </div>
+
+        <div id="enablejs-chrome">
+          <h1>Chrome</h1>
+          Please complete the following instructions to activate and enable JavaScript in Chrome.
+
+          <h3>PC</h3>
+          <ol>
+            <li>Select Customize and control Google Chrome (wrench Icon) to the right of the address bar.</li>
+            <li>From the drop-down menu, select Options Select the Under the Hood tab at the top of the window.</li>
+            <li>Under the Privacy heading, select the Content settings button.</li>
+            <li>On the left, under the features heading, select JavaScript.</li>
+            <li>Select the Allow all sites to run JavaScript radio button.</li>
+            <li>Finally, close both preference windows, and refresh the browser.</li>
+          </ol>
+          <h3>MAC</h3>
+          <ol>
+            <li>Select the Chrome menu item from the Apple/System bar at the top of the screen.</li>
+            <li>From the drop-down menu, select Preferences...</li>
+            <li>Select the Under the Hood tab at the top of the window.</li>
+            <li>Under the Privacy heading, select the Content settings button.</li>
+            <li>On the left, under the features heading, select JavaScript.</li>
+            <li>Select the Allow all sites to run JavaScript radio button.</li>
+            <li>Finally, close both preference windows, and refresh the browser.</li>
+          </ol>
+        </div>
+      </div>
+
+      <p>
+        As taken from:
+      </p>
+      <ol>
+        <li>
+          <a href="http://activatejavascript.org/en/instructions/" target="_blank" rel="noopener noreferrer">http://activatejavascript.org/en/instructions/</a>
+        </li>
+        <li>
+          <a href="https://support.mozilla.org/en-US/kb/javascript-settings-for-interactive-web-pages" target="_blank" rel="noopener noreferrer">
+            https://support.mozilla.org/en-US/kb/javascript-settings-for-interactive-web-page
+          </a>
+        </li>
+      </ol>
+    </div>
+  </noscript>
+
+  <tm-root ng-version="16.2.12"><router-outlet></router-outlet><tm-instructor-page><tm-page _nghost-ng-c180323284=""><nav _ngcontent-ng-c180323284="" class="navbar navbar-expand-lg navbar-dark fixed-top"><a _ngcontent-ng-c180323284="" tmrouterlink="/web" href="/web?user=atacoh@unsa.edu.pe"><img _ngcontent-ng-c180323284="" src="assets/images/teammateslogo.png" alt="TEAMMATES [Logo]"></a><button _ngcontent-ng-c180323284="" type="button" aria-label="Toggle navigation" class="navbar-toggler d-lg-none" aria-expanded="false"><span _ngcontent-ng-c180323284="" class="navbar-toggler-icon"></span></button><div _ngcontent-ng-c180323284="" class="navbar-collapse" style="display: none;"><ul _ngcontent-ng-c180323284="" class="nav navbar-nav flex-nowrap me-auto ng-star-inserted"><!----><li _ngcontent-ng-c180323284="" class="nav-item ng-star-inserted"><a _ngcontent-ng-c180323284="" class="nav-link" href="/web/instructor?user=atacoh@unsa.edu.pe">Home</a></li><!----><!----><li _ngcontent-ng-c180323284="" class="nav-item ng-star-inserted"><a _ngcontent-ng-c180323284="" class="nav-link" href="/web/instructor/courses?user=atacoh@unsa.edu.pe">Courses</a></li><!----><!----><li _ngcontent-ng-c180323284="" class="nav-item ng-star-inserted"><a _ngcontent-ng-c180323284="" class="nav-link" href="/web/instructor/sessions?user=atacoh@unsa.edu.pe">Sessions</a></li><!----><!----><li _ngcontent-ng-c180323284="" class="nav-item ng-star-inserted"><a _ngcontent-ng-c180323284="" class="nav-link" href="/web/instructor/students?user=atacoh@unsa.edu.pe">Students</a></li><!----><!----><li _ngcontent-ng-c180323284="" class="nav-item ng-star-inserted"><a _ngcontent-ng-c180323284="" class="nav-link" href="/web/instructor/search?user=atacoh@unsa.edu.pe">Search</a></li><!----><!----><li _ngcontent-ng-c180323284="" class="nav-item ng-star-inserted"><a _ngcontent-ng-c180323284="" class="nav-link" href="/web/instructor/notifications?user=atacoh@unsa.edu.pe">Notifications</a></li><!----><li _ngcontent-ng-c180323284="" ngbdropdown="" class="nav-item ng-star-inserted dropdown"><button _ngcontent-ng-c180323284="" data-toggle="dropdown" tabindex="0" ngbdropdowntoggle="" class="dropdown-toggle bg-transparent btn btn-link nav-link" aria-expanded="false">Help</button><div _ngcontent-ng-c180323284="" ngbdropdownmenu="" class="dropdown-menu" data-bs-popper="static"><a _ngcontent-ng-c180323284="" class="dropdown-item ng-star-inserted" href="/web/instructor/getting-started?user=atacoh@unsa.edu.pe">Getting Started</a><a _ngcontent-ng-c180323284="" class="dropdown-item ng-star-inserted" href="/web/instructor/help?user=atacoh@unsa.edu.pe">Instructor Help</a><!----></div></li><!----><!----><!----></ul><!----><!----><ul _ngcontent-ng-c180323284="" class="nav navbar-nav pull-right ng-star-inserted"><!----><li _ngcontent-ng-c180323284="" ngbdropdown="" placement="bottom-end" class="nav-item ng-star-inserted dropdown"><button _ngcontent-ng-c180323284="" data-toggle="dropdown" tabindex="0" ngbdropdowntoggle="" class="dropdown-toggle bg-transparent btn btn-link nav-link" aria-expanded="false">atacoh@unsa.edu.pe (M)</button><div _ngcontent-ng-c180323284="" ngbdropdownmenu="" class="dropdown-menu-right dropdown-menu" data-bs-popper="static"><a _ngcontent-ng-c180323284="" tmrouterlink="/web/student" class="dropdown-item ng-star-inserted" href="/web/student?user=atacoh@unsa.edu.pe">To student pages</a><!----><a _ngcontent-ng-c180323284="" tmrouterlink="/web/instructor" class="dropdown-item ng-star-inserted" href="/web/instructor?user=atacoh@unsa.edu.pe">To instructor pages</a><!----><!----><!----><div _ngcontent-ng-c180323284="" class="dropdown-divider ng-star-inserted"></div><!----><a _ngcontent-ng-c180323284="" tmrouterlink="/web/front/home" id="logout-btn" class="dropdown-item" style="cursor: pointer;" href="/web/front/home?user=atacoh@unsa.edu.pe">Log Out</a></div></li><!----></ul><!----></div></nav><tm-loader-bar _ngcontent-ng-c180323284="" _nghost-ng-c133360504=""><!----></tm-loader-bar><tm-toast _ngcontent-ng-c180323284="" aria-live="polite" aria-atomic="true" _nghost-ng-c2034398941=""><!----></tm-toast><main _ngcontent-ng-c180323284="" id="main-content" class="container main-content"><tm-notification-banner _ngcontent-ng-c180323284="" _nghost-ng-c1213596507="" class="ng-tns-c1213596507-0 ng-star-inserted"><!----></tm-notification-banner><!----><div _ngcontent-ng-c180323284="" class="ng-star-inserted"><!----><!----><!----><!----><h1 _ngcontent-ng-c180323284="" class="ng-star-inserted">Courses</h1><!----><router-outlet _ngcontent-ng-c180323284="" class="ng-star-inserted"></router-outlet><tm-instructor-courses-page _nghost-ng-c185409781="" class="ng-tns-c185409781-1 ng-star-inserted"><div _ngcontent-ng-c185409781="" class="ng-tns-c185409781-1"><button _ngcontent-ng-c185409781="" id="btn-add-course" class="btn btn-success ng-tns-c185409781-1"><i _ngcontent-ng-c185409781="" class="fas fa-plus ng-tns-c185409781-1"></i> Add New Course </button></div><!----><!----><tm-loading-retry _ngcontent-ng-c185409781="" class="ng-tns-c185409781-1" _nghost-ng-c1230435294=""><div _ngcontent-ng-c185409781="" class="course-section ng-star-inserted"><h2 _ngcontent-ng-c185409781="" class="h3 ng-tns-c185409781-1">Active courses</h2><div _ngcontent-ng-c185409781="" class="ng-tns-c185409781-1 ng-star-inserted"><!----><div _ngcontent-ng-c185409781="" class="ng-tns-c185409781-1 ng-star-inserted"><div _ngcontent-ng-c185409781="" class="table table-responsive ng-tns-c185409781-1"><table _ngcontent-ng-c185409781="" id="active-courses-table" class="table table-striped table-bordered margin-0 ng-tns-c185409781-1"><thead _ngcontent-ng-c185409781="" class="ng-tns-c185409781-1"><tr _ngcontent-ng-c185409781="" class="bg-primary text-white ng-tns-c185409781-1"><th _ngcontent-ng-c185409781="" id="sort-course-id" class="sortable-header ng-tns-c185409781-1" aria-sort="none"><button _ngcontent-ng-c185409781="" class="ng-tns-c185409781-1"> Course ID <span _ngcontent-ng-c185409781="" aria-hidden="true" class="fa-stack ng-tns-c185409781-1"><i _ngcontent-ng-c185409781="" class="fas fa-sort ng-tns-c185409781-1"></i><!----><!----></span></button></th><th _ngcontent-ng-c185409781="" id="sort-course-name" class="sortable-header ng-tns-c185409781-1" aria-sort="none"><button _ngcontent-ng-c185409781="" class="ng-tns-c185409781-1"> Course Name <span _ngcontent-ng-c185409781="" aria-hidden="true" class="fa-stack ng-tns-c185409781-1"><i _ngcontent-ng-c185409781="" class="fas fa-sort ng-tns-c185409781-1"></i><!----><!----></span></button></th><th _ngcontent-ng-c185409781="" id="sort-creation-date" class="sortable-header ng-tns-c185409781-1" aria-sort="descending"><button _ngcontent-ng-c185409781="" class="ng-tns-c185409781-1"> Creation Date <span _ngcontent-ng-c185409781="" aria-hidden="true" class="fa-stack ng-tns-c185409781-1"><i _ngcontent-ng-c185409781="" class="fas fa-sort ng-tns-c185409781-1"></i><i _ngcontent-ng-c185409781="" class="fas fa-sort-down ng-tns-c185409781-1 ng-star-inserted"></i><!----><!----></span></button></th><th _ngcontent-ng-c185409781="" class="ng-tns-c185409781-1">Sections</th><th _ngcontent-ng-c185409781="" class="ng-tns-c185409781-1">Teams</th><th _ngcontent-ng-c185409781="" class="ng-tns-c185409781-1">Total Students</th><th _ngcontent-ng-c185409781="" class="ng-tns-c185409781-1">Total Unregistered</th><th _ngcontent-ng-c185409781="" class="text-center ng-tns-c185409781-1">Action(s)</th></tr></thead><tbody _ngcontent-ng-c185409781="" class="ng-tns-c185409781-1"><!----><tr _ngcontent-ng-c185409781="" class="ng-tns-c185409781-1 ng-star-inserted"><td _ngcontent-ng-c185409781="" class="text-break ng-tns-c185409781-1" id="course-id-0">atacoh.uns-demo</td><td _ngcontent-ng-c185409781="" class="text-break ng-tns-c185409781-1">Sample Course 101</td><td _ngcontent-ng-c185409781="" class="ng-tns-c185409781-1"><span _ngcontent-ng-c185409781="" container="body" class="ngb-tooltip-class ng-tns-c185409781-1"> 16 Jul 2025 </span><!----></td><td _ngcontent-ng-c185409781="" class="ng-tns-c185409781-1"><span _ngcontent-ng-c185409781="" class="ng-tns-c185409781-1 ng-star-inserted"><button _ngcontent-ng-c185409781="" class="link-button ng-tns-c185409781-1 ng-star-inserted"> Show </button><!----></span><!----><!----></td><td _ngcontent-ng-c185409781="" class="ng-tns-c185409781-1"><span _ngcontent-ng-c185409781="" class="ng-tns-c185409781-1 ng-star-inserted"><button _ngcontent-ng-c185409781="" class="link-button ng-tns-c185409781-1 ng-star-inserted" id="show-statistics-0"> Show </button><!----></span><!----><!----></td><td _ngcontent-ng-c185409781="" class="ng-tns-c185409781-1"><span _ngcontent-ng-c185409781="" class="ng-tns-c185409781-1 ng-star-inserted"><button _ngcontent-ng-c185409781="" class="link-button ng-tns-c185409781-1 ng-star-inserted"> Show </button><!----></span><!----><!----></td><td _ngcontent-ng-c185409781="" class="ng-tns-c185409781-1"><span _ngcontent-ng-c185409781="" class="ng-tns-c185409781-1 ng-star-inserted"><button _ngcontent-ng-c185409781="" class="link-button ng-tns-c185409781-1 ng-star-inserted"> Show </button><!----></span><!----><!----></td><td _ngcontent-ng-c185409781="" class="text-center actions-cell ng-tns-c185409781-1"><a _ngcontent-ng-c185409781="" ngbtooltip="Enroll student into the course" tmrouterlink="/web/instructor/courses/enroll" class="btn btn-light btn-sm custom-button-active ng-tns-c185409781-1 ng-star-inserted" id="btn-enroll-0" href="/web/instructor/courses/enroll?courseid=atacoh.uns-demo&amp;user=atacoh@unsa.edu.pe"> Enroll </a><!----><!----><!----><div _ngcontent-ng-c185409781="" ngbdropdown="" class="d-inline-block ng-tns-c185409781-1 dropdown"><button _ngcontent-ng-c185409781="" ngbdropdowntoggle="" class="dropdown-toggle btn btn-light btn-sm custom-button-active ng-tns-c185409781-1" id="btn-other-actions-0" aria-expanded="false">Other Actions</button><div _ngcontent-ng-c185409781="" ngbdropdownmenu="" class="ng-tns-c185409781-1 dropdown-menu"><a _ngcontent-ng-c185409781="" tmrouterlink="/web/instructor/courses/details" class="btn btn-primary btn-sm dropdown-item clickable ng-tns-c185409781-1" href="/web/instructor/courses/details?courseid=atacoh.uns-demo&amp;user=atacoh@unsa.edu.pe"> View </a><a _ngcontent-ng-c185409781="" tmrouterlink="/web/instructor/courses/edit" class="btn btn-primary btn-sm dropdown-item clickable ng-tns-c185409781-1" href="/web/instructor/courses/edit?courseid=atacoh.uns-demo&amp;user=atacoh@unsa.edu.pe"> Edit </a><button _ngcontent-ng-c185409781="" ngbtooltip="Copy the course and its corresponding sessions" placement="left" container="body" class="btn btn-primary btn-sm dropdown-item clickable ng-tns-c185409781-1 ng-star-inserted" id="btn-copy-0"> Copy </button><!----><!----><button _ngcontent-ng-c185409781="" ngbtooltip="Archive the course so that it will not be shown in the home page any more (you can still access it from the 'Courses' tab)" placement="left" container="body" class="btn btn-primary btn-sm dropdown-item clickable ng-tns-c185409781-1" id="btn-archive-0"> Archive </button><!----><!----><button _ngcontent-ng-c185409781="" ngbtooltip="Delete the course and its corresponding students and sessions" placement="left" container="body" class="btn btn-primary btn-sm dropdown-item clickable ng-tns-c185409781-1 ng-star-inserted" id="btn-soft-delete-0"> Delete </button><!----><!----><!----></div></div></td></tr><!----></tbody><!----></table><!----></div></div><!----></div><!----></div><!----><!----></tm-loading-retry><div _ngcontent-ng-c185409781="" class="course-section ng-tns-c185409781-1"><h2 _ngcontent-ng-c185409781="" class="h3 text-muted ng-tns-c185409781-1"><span _ngcontent-ng-c185409781="" aria-hidden="true" class="fa fa-file-archive ng-tns-c185409781-1"></span> Archived courses </h2><div _ngcontent-ng-c185409781="" class="ng-tns-c185409781-1 ng-star-inserted"><!----><div _ngcontent-ng-c185409781="" role="alert" class="alert alert-warning margin-top-30px ng-tns-c185409781-1 ng-star-inserted"> There are no courses archived currently. </div><!----></div><!----></div><div _ngcontent-ng-c185409781="" class="row course-section margin-top-30px ng-tns-c185409781-1"><div _ngcontent-ng-c185409781="" class="col-12 ng-tns-c185409781-1"><h2 _ngcontent-ng-c185409781="" class="h3 text-muted ng-tns-c185409781-1"><span _ngcontent-ng-c185409781="" aria-hidden="true" class="fa fa-trash-alt ng-tns-c185409781-1"></span> Deleted courses </h2><div _ngcontent-ng-c185409781="" class="ng-tns-c185409781-1 ng-star-inserted"><!----><div _ngcontent-ng-c185409781="" role="alert" class="alert alert-warning margin-top-30px ng-tns-c185409781-1 ng-star-inserted"> There are no courses in the bin. </div><!----></div><!----></div></div><!----></tm-instructor-courses-page><!----><!----></div><!----></main><footer _ngcontent-ng-c180323284="" class="footer"><div _ngcontent-ng-c180323284="" class="row text-center"><div _ngcontent-ng-c180323284="" class="col-sm-6 text-md-start"><i _ngcontent-ng-c180323284="" class="fas fa-bolt"></i>&nbsp;<a _ngcontent-ng-c180323284="" tmrouterlink="/web/front/home" href="/web/front/home?user=atacoh@unsa.edu.pe">TEAMMATES</a> V8.0.0 </div><div _ngcontent-ng-c180323284="" class="col-sm-6 text-md-end"><i _ngcontent-ng-c180323284="" class="far fa-comments"></i>&nbsp;Send <a _ngcontent-ng-c180323284="" tmrouterlink="/web/front/contact" target="_blank" href="/web/front/contact?user=atacoh@unsa.edu.pe">Feedback</a></div><div _ngcontent-ng-c180323284="" class="col-sm-12"> Sponsored by School of Computing, National University of Singapore. <a _ngcontent-ng-c180323284="" tmrouterlink="/web/front/contact" target="_blank" href="/web/front/contact?user=atacoh@unsa.edu.pe">Become a sponsor</a></div></div></footer></tm-page></tm-instructor-page><!----></tm-root>
+<script src="runtime.22e0f19e323ab399.js" type="module" crossorigin="anonymous" integrity="sha384-f49JlHUcgpZ1QYd2ZX4W8on369kG2Ms3ATA31fN2DxFxTHv4lppD7CJ3WHWybbNK"></script><script src="polyfills.d9f1120c1a65d397.js" type="module" crossorigin="anonymous" integrity="sha384-9+czhy/U4NaZ6JOnfm3TmR37bMskNG+TftxECxio9Ju74jXpZ9IaVUA7sP4p1dwc"></script><script src="main.a765fbff256029f5.js" type="module" crossorigin="anonymous" integrity="sha384-6gwfcnDrcHbC0JBOj/tHKprja5sHPFahya/B/rylF6yA1/6i10NfItJ1vpuzoYVG"></script>
+
+</body></html>
