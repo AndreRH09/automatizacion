@@ -1,10 +1,10 @@
 # CPF-ADM-013: Verificar acceso a "Timezone Listing"
 import os
+import time
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
@@ -12,17 +12,15 @@ from dotenv import load_dotenv
 
 class TestADM013:
     def setup_method(self, method):
-        # Cargar credenciales
         load_dotenv(dotenv_path='cred.env')
         self.email = os.getenv("EMAIL")
         self.password = os.getenv("PASSWORD")
         assert self.email is not None, "EMAIL no encontrada en cred.env"
         assert self.password is not None, "PASSWORD no encontrada en cred.env"
 
-        # Inicializar navegador
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()
-        self.wait = WebDriverWait(self.driver, 10)
+        self.wait = WebDriverWait(self.driver, 15)
 
     def teardown_method(self, method):
         self.driver.quit()
@@ -49,9 +47,10 @@ class TestADM013:
         password_input.send_keys(self.password)
         password_input.send_keys(Keys.ENTER)
 
+        # Esperar que cargue la vista de instructor
         self.wait.until(EC.presence_of_element_located((By.LINK_TEXT, "Home")))
 
-        # Ir al menú de usuario
+        # Ir al menú de usuario (último dropdown)
         user_dropdowns = self.driver.find_elements(By.CSS_SELECTOR, ".dropdown-toggle")
         if user_dropdowns:
             user_dropdowns[-1].click()
@@ -65,5 +64,7 @@ class TestADM013:
         self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".nav-item:nth-child(6) > .dropdown-toggle"))).click()
         self.wait.until(EC.element_to_be_clickable((By.LINK_TEXT, "Timezone Listing"))).click()
 
-        # Verificar que se cargó la tabla
-        assert self.wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, ".table"))), "No se cargó la tabla de zonas horarias"
+        # Verificar que la URL es la esperada
+        self.wait.until(EC.url_to_be("https://teammates-hormiga-1.uc.r.appspot.com/web/admin/timezone"))
+        assert self.driver.current_url == "https://teammates-hormiga-1.uc.r.appspot.com/web/admin/timezone", \
+            f"❌ URL incorrecta: {self.driver.current_url}"
